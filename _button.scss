@@ -19,40 +19,152 @@ $button__variable-name: true !default;
 
 .c-button {
     position: relative; // 1
-
     display: block;
+    overflow:auto;
     max-width: 100%;
     min-height: $tap-size;
     border-radius: $border-radius;
 
     button {
-        position: absolute; // 1
-        top: 0; // 1
-        left: 0; // 1
+        display:inline-block;
 
         width: 100%; // 1
         height: 100%; // 1
         padding-right: $horizontal-input-padding;
         padding-left: $horizontal-input-padding;
-        background-image: none;
-        border: $border-color solid transparent;
-        border-radius: $border-radius;
+        padding-top:$vertical-input-padding;
+        padding-bottom:$vertical-input-padding;
+        cursor:pointer;
+        white-space: nowrap;
+        vertical-align: middle;
 
-        background: none; // 2
+        background-image: none;
+        border-color: $neutral-50;
+        border-style: $button-border-style;
+        border-width: $button-border-width;
+        border-radius: $button-border-radius;
+        background: $neutral-50 ; // 2
+
+        font-size: $font-size;
+        text-align:center;
+        color:white;
 
         -webkit-appearance: none; // 2
 
+        &:hover:enabled {
+            background: $neutral-60;
+            border-color: $neutral-60;
+        }
+
+        &:disabled {
+            background: $neutral-40;
+            border-color: $neutral-40;
+            cursor:initial;
+        }
+
+        //colours for primary button
+        &.c-button--basic {
+            background:$button-basic;
+            border-color: $button-basic;
+
+            &:hover:enabled {
+                color: white;
+                background: $button-basic-active;
+                border-color: $button-basic-active;
+            }
+
+            &:disabled {
+                color: white;
+                background: $button-basic-disabled;
+                border-color: $button-basic-disabled;
+                cursor:initial;
+            }
+        }
+
+        //colours for success button
+        &.c-button--success {
+            background:$button-success;
+            border-color: $button-success;
+
+            &:hover:enabled {
+                color: white;
+                background: $button-success-active;
+                border-color: $button-success-active;
+            }
+
+            &:disabled {
+                color: white;
+                background: $button-success-disabled;
+                border-color: $button-success-disabled;
+                cursor:initial;
+            }
+        }
+
+        //colours for error button
+        &.c-button--error {
+            background: $button-error;
+            border-color: $button-error;
+
+            &:hover:enabled {
+                color: white;
+                background: $button-error-active;
+                border-color: $button-error-active;
+            }
+
+            &:disabled {
+                color: white;
+                background: $button-error-disabled;
+                border-color: $button-error-disabled;
+                cursor:initial;
+            }
+        }
+
+        //styles for secondary button
+        &.c-button--secondary {
+            background: none;
+
+            &.c-button--basic {
+            color: $button-basic;
+            }
+
+            &.c-button--success {
+            color: $button-success;
+            }
+
+            &.c-button--error {
+            color: $button-error;
+            }
+
+
+            &:hover:enabled {
+                color: white;
+            }
+            &:disabled {
+                cursor:initial;
+
+                &.c-button--basic {
+                    color: $button-basic-disabled;
+                }
+
+                &.c-button--success {
+                    color: $button-success-disabled;
+                }
+
+                &.c-button--error {
+                    color: $button-error-disabled;
+                }
+
+            }
+        }
+
+        &.c-button--text-align-left {
+            text-align:left;
+        }
+        &.c-button--text-align-right {
+            text-align:right;
+        }
+        &.c-button--text-align-right {
+            text-align:center;
+        }
     }
-}
-
-.c-button.c-button-default {
-
-}
-
-
-// Button sub-component
-// ---
-
-.c-button__sub-component {
-    // Your component styles go here
 }

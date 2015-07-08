@@ -1,26 +1,87 @@
 # Stencil Button
 
+A styleable, accessible `<button>` component for [Mobify’s AdaptiveJS framework](http://adaptivejs.mobify.com/).
 
-
-[Link to demo](#)
+**View demo (coming soon)**
 
 ## Requirements
 
-- Sass
-- AMD loader
-- Dust templating
+- AdaptiveJS 2.1 or greater
 
 ## Installation
 
-Installation instructions. Be as brief as possible without leaving out necessary requirements.
+```shell
+cd my/adaptive/project
+grunt component:install:button
+```
 
 ## Usage
 
-- How to
+During installation, AdaptiveJS will register a Dust helper for the component which can be used in any template.
 
-## Development
+### With a pre-existing select element
 
-* run `npm install`
-* run `bower install`
-* run `grunt serve`
-* navigate to [localhost:3000/tests/visual](http://localhost:3000/tests/visual)
+```html
+{@c-button element=selectMarkupOrElement /}
+```
+
+
+### With options from data
+
+Assuming a context of the form:
+
+```javascript
+var context = {
+    myButtonData: {
+        id: 'something',
+        buttonText: 'something',
+};
+```
+
+```html
+{#myButtonData}
+    {@c-button id=id buttonText=buttonText/}
+{/myButtonData}
+```
+
+
+
+## API
+
+### Dust helper parameters
+
+Param name | Type          | Description
+:--------- | :------------ | :----------
+class      | String        | Adds values to the `class` attribute of the root element
+id         | String        | Sets the `id` attribute of the root element
+element    | DOM, String   | Accepts the underlying select element as a DOM node or HTML string
+buttonText | String        | Creates Button Text
+buttonType | String        | Adds class to button
+isSecondary| String        | true if you would like a secondary button (default:false)
+buttonTextAlign| String        | Sets text align of button text. One of left, right or center (default:center)
+
+### Dust helper bodies
+
+### Sass configurable variables
+
+Variable name             | Type      | Description
+:------------------------ | :-------- | :----------
+$select__draw-caret       | Boolean   | Whether to draw the default down-arrow icon. Set `false` to render your own.
+
+## Contributing
+
+First, read the Adaptive component documentation, especially the pages on creating components and the Stencil authoring guide. Then, clone the repo:
+
+- `git clone git@github.com:mobify/stencil-select.git`
+- `cd stencil-select`
+- `npm install && bower install`
+- Create a branch for your changes and begin development.
+- Run the test server during development to check your work (see below).
+
+### Testing
+
+Visual tests provide a way to describe the features of a component in a spec format and manually check functionality of a component. To run tests:
+
+- `grunt serve`
+- Note the local port on which the test server is running (defaults to 3000)
+- Navigate to [localhost:{port}/tests/visual](http://localhost:3000/tests/visual)

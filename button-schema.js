@@ -17,6 +17,7 @@ define(function(require) {
         '?buttonText': String,
         '?buttonType': String,
         '?isSecondary': Boolean,
-        '?buttonTextAlign':String
+        '?buttonTextAlign':String,
+        '?customButtonClass':String
     });
 });
