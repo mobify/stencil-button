@@ -1,0 +1,58 @@
+// button
+// ===
+
+// Configurable Variables
+// ---
+
+$button__variable-name: true !default;
+
+
+// Dependencies
+// ---
+
+@import 'stencil-variables/variables';
+@import 'level/level';
+
+
+// Button root
+// ---
+
+.c-button {
+    position: relative; // 1
+
+    display: block;
+    max-width: 100%;
+    min-height: $tap-size;
+    border-radius: $border-radius;
+
+    button {
+        position: absolute; // 1
+        top: 0; // 1
+        left: 0; // 1
+
+        width: 100%; // 1
+        height: 100%; // 1
+        padding-right: $horizontal-input-padding;
+        padding-left: $horizontal-input-padding;
+        background-image: none;
+        border: $border-color solid transparent;
+        border-radius: $border-radius;
+
+        background: none; // 2
+
+        -webkit-appearance: none; // 2
+
+    }
+}
+
+.c-button.c-button-default {
+
+}
+
+
+// Button sub-component
+// ---
+
+.c-button__sub-component {
+    // Your component styles go here
+}

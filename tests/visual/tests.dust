@@ -1,0 +1,11 @@
+<style>
+    /* Test-specific fixture styles go here. */
+</style>
+
+{@c-spec for="Button Component" repository=repo}
+    {@c-spec__test describe=".c-button"}
+        {@c-spec__case expect="Should have feature A"}
+            {@c-button /}
+        {/c-spec__case}
+    {/c-spec__test}
+{/c-spec}

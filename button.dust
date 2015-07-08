@@ -1,0 +1,12 @@
+{?link}<a href="{link}">{/link}
+    <div class="c-button {class}" {?id}id="{id}"{/id}>
+        {?element}
+            {element}
+        {:else}
+            <button class="{?isSecondary}c-button-secondary{/isSecondary} {?buttonType}{buttonType}{/buttonType} {?buttonTextAlign}c-button--align-{buttonTextAlign}{/buttonTextAlign}" {?disabled}disabled{/disabled}>
+                <span class="c-button__text">{?buttonText}{buttonText}{/buttonText}</span>
+            </button>
+        {/element}
+    </div>
+{?link}</a>{/link}
+
