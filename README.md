@@ -54,26 +54,19 @@ Param name | Type          | Description
 :--------- | :------------ | :----------
 class      | String        | Adds values to the `class` attribute of the root element
 id         | String        | Sets the `id` attribute of the root element
-element    | DOM, String   | Accepts the underlying select element as a DOM node or HTML string
+element    | DOM, String   | Accepts the underlying button element as a DOM node or HTML string
 buttonText | String        | Creates Button Text
-buttonType | String        | Adds class to button
-isSecondary| String        | true if you would like a secondary button (default:false)
-buttonTextAlign| String        | Sets text align of button text. One of left, right or center (default:center)
-
-### Dust helper bodies
-
-### Sass configurable variables
-
-Variable name             | Type      | Description
-:------------------------ | :-------- | :----------
-$select__draw-caret       | Boolean   | Whether to draw the default down-arrow icon. Set `false` to render your own.
+buttonType | String        | Creates predefined button styles. One of `basic`, `success` or `error`
+isSecondary| Boolean        | true if you would like a secondary button (default:false)
+customButtonClass| String        | Add a custom class to your button
+buttonTextAlign| String        | Sets text align of button text. One of `left`, `right` or `center` (default:center)
 
 ## Contributing
 
 First, read the Adaptive component documentation, especially the pages on creating components and the Stencil authoring guide. Then, clone the repo:
 
-- `git clone git@github.com:mobify/stencil-select.git`
-- `cd stencil-select`
+- `git clone git@github.com:mobify/stencil-button.git`
+- `cd stencil-button`
 - `npm install && bower install`
 - Create a branch for your changes and begin development.
 - Run the test server during development to check your work (see below).
