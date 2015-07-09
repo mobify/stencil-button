@@ -75,10 +75,10 @@ $active-basic-button      | String    | sets colour of basic button when active 
 $disabled-basic-button    | String    | sets colour of basic button when disabled (ex `#cccccc)
 $success-button           | String    | sets colour of success button
 $active-success-button    | String    | sets colour of success button when active (ex `#cccccc` )
-$disabled-success-button  | String    | sets colour of success button when disabled (ex `#cccccc)
+$disabled-success-button  | String    | sets colour of success button when disabled (ex `#cccccc`)
 $error-button             | String    | sets colour of error button
 $active-error-button      | String    | sets colour of error button when active (ex `#cccccc` )
-$disabled-error-button    | String    | sets colour of error button when disabled (ex `#cccccc)
+$disabled-error-button    | String    | sets colour of error button when disabled (ex `#cccccc`)
 $large-button             | String    | sets size of large button (ex `20px`)
 $padding-large-button     | String    | sets padding of large button (ex `20px 20px`)
 $xlarge-button            | String    | sets size of xlarge button (ex `20px`)
