@@ -3,8 +3,8 @@
         {?element}
             {element}
         {:else}
-            <button class="c-button--error c-button--secondary{?isSecondary}c-button--secondary{/isSecondary} {?buttonType}c-button--{buttonType}{/buttonType} {?buttonTextAlign}c-button--align-{buttonTextAlign}{/buttonTextAlign} {?customButtonClass}{customButtonClass}{/customButtonClass}" {?disabled}disabled{/disabled}>
-                {?buttonText}{buttonText}{/buttonText}
+            <button class="{?isSecondary}c-button--secondary{/isSecondary} {?buttonType}c-button--{buttonType}{/buttonType} {?textAlign}c-button--align-{textAlign}{/textAlign} {?customClass}{customClass}{/customClass} {?size}c-button--{size}{/size}" {?disabled}disabled{/disabled}>
+                {?text}{text}{/text}
             </button>
         {/element}
     </div>

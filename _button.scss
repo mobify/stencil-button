@@ -26,6 +26,10 @@ $button-error: #da5956 !default;
 $button-error-active: #d33936 !default;
 $button-error-disabled: #e17976 !default;
 
+//button sizes
+$button-large: 20px !default;
+$button-xlarge: 26px !default;
+$button-xxlarge: 35px !default;
 // Dependencies
 // ---
 
@@ -174,6 +178,16 @@ $button-error-disabled: #e17976 !default;
                 }
 
             }
+        }
+
+        &.c-button--large {
+            font-size: 20px;
+        }
+        &.c-button--xlarge {
+            font-size: 26px;
+        }
+        &.c-button--xxlarge {
+            font-size: 35px
         }
 
         &.c-button--text-align-left {
