@@ -4,8 +4,27 @@
 // Configurable Variables
 // ---
 
-$button__variable-name: true !default;
+//Button Styles
+//---
 
+$button-border-width: 2px !default;
+$button-border-style: solid !default;
+$button-border-radius: 5px !default;
+
+//primary button
+$button-basic: #5c9bd2 !default;
+$button-basic-active: #3d88ca !default;
+$button-basic-disabled: #8ab7df !default;
+
+//success button
+$button-success: #61bb61 !default;
+$button-success-active: #53b553 !default;
+$button-success-disabled: #8acd8a !default;
+
+//error button
+$button-error: #da5956 !default;
+$button-error-active: #d33936 !default;
+$button-error-disabled: #e17976 !default;
 
 // Dependencies
 // ---
