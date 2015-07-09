@@ -17,6 +17,7 @@ define(function(require) {
         '?buttonText': String,
         '?buttonType': String,
         '?isSecondary': Boolean,
+        '?textAlign': String,
         '?text':String,
         '?customClass':String,
         '?size':String

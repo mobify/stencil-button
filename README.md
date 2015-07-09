@@ -55,11 +55,37 @@ Param name | Type          | Description
 class      | String        | Adds values to the `class` attribute of the root element
 id         | String        | Sets the `id` attribute of the root element
 element    | DOM, String   | Accepts the underlying button element as a DOM node or HTML string
-buttonText | String        | Creates Button Text
+text       | String        | Creates Button Text
 buttonType | String        | Creates predefined button styles. One of `basic`, `success` or `error`
-isSecondary| Boolean        | true if you would like a secondary button (default:false)
-customButtonClass| String        | Add a custom class to your button
-buttonTextAlign| String        | Sets text align of button text. One of `left`, `right` or `center` (default:center)
+isSecondary| Boolean       | true if you would like a secondary button (default:false)
+customClass| String        | Add a custom class to your button
+textAlign  | String        | Sets text align of button text. One of `left`, `right` or `center` (default:center)
+size       | String        | sets size of button. One of `large`, `xlarge` or `xxlarge`
+
+
+### Sass configurable variables
+
+Variable name             | Type      | Description
+:------------------------ | :-------- | :----------
+$border-width-button      | String    | Sets border width of all buttons (ex `2px`)
+$border-style-button      | String    | Sets style of border
+$border-radius-button     | String    | Sets border radius of all buttons (ex `2px`)
+$basic-button             | String    | sets colour of basic button (ex `#cccccc`)
+$active-basic-button      | String    | sets colour of basic button when active (ex `#cccccc` )
+$disabled-basic-button    | String    | sets colour of basic button when disabled (ex `#cccccc)
+$success-button           | String    | sets colour of success button
+$active-success-button    | String    | sets colour of success button when active (ex `#cccccc` )
+$disabled-success-button  | String    | sets colour of success button when disabled (ex `#cccccc)
+$error-button             | String    | sets colour of error button
+$active-error-button      | String    | sets colour of error button when active (ex `#cccccc` )
+$disabled-error-button    | String    | sets colour of error button when disabled (ex `#cccccc)
+$large-button             | String    | sets size of large button (ex `20px`)
+$padding-large-button     | String    | sets padding of large button (ex `20px 20px`)
+$xlarge-button            | String    | sets size of xlarge button (ex `20px`)
+$padding-xlarge-button    | String    | sets padding of xlarge button (ex `20px 20px`)
+$xxlarge-button           | String    | sets size of xxlarge button (ex `20px`)
+$padding-xxlarge-button   | String    | sets padding of xxlarge button (ex `20px 20px`)
+
 
 ## Contributing
 

@@ -7,29 +7,29 @@
 //Button Styles
 //---
 
-$button-border-width: 2px !default;
-$button-border-style: solid !default;
-$button-border-radius: 5px !default;
+$border-width-button: 2px !default;
+$border-style-button: solid !default;
+$border-radius-button: 5px !default;
 
 //primary button
-$button-basic: #5c9bd2 !default;
-$button-basic-active: #3d88ca !default;
-$button-basic-disabled: #8ab7df !default;
+$basic-button: #5c9bd2 !default;
+$active-basic-button: #3d88ca !default;
+$disabled-basic-button: #8ab7df !default;
 
 //success button
-$button-success: #61bb61 !default;
-$button-success-active: #53b553 !default;
-$button-success-disabled: #8acd8a !default;
+$success-button: #61bb61 !default;
+$active-success-button: #53b553 !default;
+$disabled-success-button: #8acd8a !default;
 
 //error button
-$button-error: #da5956 !default;
-$button-error-active: #d33936 !default;
-$button-error-disabled: #e17976 !default;
+$error-button: #da5956 !default;
+$active-error-button: #d33936 !default;
+$disabled-error-button: #e17976 !default;
 
 //button sizes
-$button-large: 20px !default;
-$button-xlarge: 26px !default;
-$button-xxlarge: 35px !default;
+$large-button: 20px !default;
+$xlarge-button: 26px !default;
+$xxlarge-button: 35px !default;
 // Dependencies
 // ---
 
@@ -63,9 +63,9 @@ $button-xxlarge: 35px !default;
 
         background-image: none;
         border-color: $neutral-50;
-        border-style: $button-border-style;
-        border-width: $button-border-width;
-        border-radius: $button-border-radius;
+        border-style: $border-style-button;
+        border-width: $border-width-button;
+        border-radius: $border-radius-button;
         background: $neutral-50 ; // 2
 
         font-size: $font-size;
@@ -87,57 +87,57 @@ $button-xxlarge: 35px !default;
 
         //colours for primary button
         &.c-button--basic {
-            background:$button-basic;
-            border-color: $button-basic;
+            background: $basic-button;
+            border-color: $basic-button;
 
             &:hover:enabled {
                 color: white;
-                background: $button-basic-active;
-                border-color: $button-basic-active;
+                background: $active-basic-button;
+                border-color: $active-basic-button;
             }
 
             &:disabled {
                 color: white;
-                background: $button-basic-disabled;
-                border-color: $button-basic-disabled;
+                background: $disabled-basic-button;
+                border-color: $disabled-basic-button;
                 cursor:initial;
             }
         }
 
         //colours for success button
         &.c-button--success {
-            background:$button-success;
-            border-color: $button-success;
+            background: $success-button;
+            border-color: $success-button;
 
             &:hover:enabled {
                 color: white;
-                background: $button-success-active;
-                border-color: $button-success-active;
+                background: $active-success-button;
+                border-color: $active-success-button;
             }
 
             &:disabled {
                 color: white;
-                background: $button-success-disabled;
-                border-color: $button-success-disabled;
+                background: $disabled-success-button;
+                border-color: $disabled-success-button;
                 cursor:initial;
             }
         }
 
         //colours for error button
         &.c-button--error {
-            background: $button-error;
-            border-color: $button-error;
+            background: $error-button;
+            border-color: $error-button;
 
             &:hover:enabled {
                 color: white;
-                background: $button-error-active;
-                border-color: $button-error-active;
+                background: $active-error-button;
+                border-color: $active-error-button;
             }
 
             &:disabled {
                 color: white;
-                background: $button-error-disabled;
-                border-color: $button-error-disabled;
+                background: $disabled-error-button;
+                border-color: $disabled-error-button;
                 cursor:initial;
             }
         }
@@ -147,15 +147,15 @@ $button-xxlarge: 35px !default;
             background: none;
 
             &.c-button--basic {
-            color: $button-basic;
+            color: $basic-button;
             }
 
             &.c-button--success {
-            color: $button-success;
+            color: $success-button;
             }
 
             &.c-button--error {
-            color: $button-error;
+            color: $error-button;
             }
 
 
@@ -166,28 +166,31 @@ $button-xxlarge: 35px !default;
                 cursor:initial;
 
                 &.c-button--basic {
-                    color: $button-basic-disabled;
+                    color: $disabled-basic-button;
                 }
 
                 &.c-button--success {
-                    color: $button-success-disabled;
+                    color: $disabled-success-button;
                 }
 
                 &.c-button--error {
-                    color: $button-error-disabled;
+                    color: $disabled-error-button;
                 }
 
             }
         }
 
         &.c-button--large {
-            font-size: 20px;
+            font-size: $large-button;
+            padding: $padding-large-button;
         }
         &.c-button--xlarge {
-            font-size: 26px;
+            font-size: xlarge-button;
+            padding: $padding-xlarge-button;
         }
         &.c-button--xxlarge {
-            font-size: 35px
+            padding: $padding-xxlarge-button;
+            font-size: xlarge-button;
         }
 
         &.c-button--text-align-left {
