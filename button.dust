@@ -1,7 +1,7 @@
 {?link}<a href="{link}">{/link}
     <div class="c-button {class}" {?id}id="{id}"{/id}>
         {?element}
-            {element}
+            {element|s}
         {:else}
             <button class="{?isSecondary}c-button--secondary{/isSecondary} {?buttonType}c-button--{buttonType}{/buttonType} {?textAlign}c-button--align-{textAlign}{/textAlign} {?customClass}{customClass}{/customClass} {?size}c-button--{size}{/size}" {?disabled}disabled{/disabled}>
                 {?text}{text}{/text}
