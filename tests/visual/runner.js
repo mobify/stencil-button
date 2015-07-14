@@ -32,7 +32,7 @@ require([
     // Define any context required for the tests:
     var context = {
         repo: 'https://github.com/mobify/stencil-button',
-        selectMarkup: 'Insert example markup here',
+        buttonMarkup: '<button id="foo">foo</button>',
     };
 
     // Render

@@ -149,8 +149,9 @@ $padding-xxlarge-button: 30px 30px !default;
         //styles for secondary button
         &.c-button--secondary {
             background: none;
+            color: $neutral-50;
 
-            &.c-button--basic {
+            &.c-button--basic{
             color: $basic-button;
             }
 
@@ -189,22 +190,24 @@ $padding-xxlarge-button: 30px 30px !default;
             padding: $padding-large-button;
         }
         &.c-button--xlarge {
-            font-size: xlarge-button;
+            font-size: $xlarge-button;
             padding: $padding-xlarge-button;
         }
         &.c-button--xxlarge {
             padding: $padding-xxlarge-button;
-            font-size: xlarge-button;
+            font-size: $xxlarge-button;
         }
 
-        &.c-button--text-align-left {
-            text-align:left;
+        &.c-button--align-left {
+            text-align: left;
+            padding-left: $horizontal-input-padding;
         }
-        &.c-button--text-align-right {
-            text-align:right;
+        &.c-button--align-right {
+            text-align: right;
         }
-        &.c-button--text-align-right {
+        &.c-button--align-center {
             text-align:center;
+            padding-right: $horizontal-input-padding;
         }
     }
 }

@@ -1,11 +1,63 @@
 <style>
-    /* Test-specific fixture styles go here. */
+    .c-button--custom-class{
+        background: red !important;
+    }
 </style>
-
 {@c-spec for="Button Component" repository=repo}
     {@c-spec__test describe=".c-button"}
-        {@c-spec__case expect="Should have feature A"}
-            {@c-button /}
+        {@c-spec__case expect="Should have custom styled button"}
+            {@c-button id="foo" text="foo"/}
         {/c-spec__case}
+
+        {@c-spec__case expect="It should allow passing in an html string."}
+            {@c-button element=buttonMarkup /}
+        {/c-spec__case}
+
+        {@c-spec__case expect="It should allow passing of secondary buttons"}
+            {@c-button isSecondary="true" text="foo" /}
+        {/c-spec__case}
+
+        {@c-spec__case expect="It should allow passing of 'primary' button types"}
+            {@c-button buttonType="primary" text="foo" /}
+        {/c-spec__case}
+
+        {@c-spec__case expect="It should allow passing of 'success' button types"}
+            {@c-button buttonType="success" text="foo" /}
+        {/c-spec__case}
+
+        {@c-spec__case expect="It should allow passing of 'error' button types"}
+            {@c-button buttonType="error" text="foo" /}
+        {/c-spec__case}
+
+        {@c-spec__case expect="It should allow passing of 'textAlign' variables"}
+            {@c-button textAlign="left" text="foo" /}
+        {/c-spec__case}
+
+        {@c-spec__case expect="It should allow passing of 'textAlign' variables"}
+            {@c-button textAlign="center" text="foo" /}
+        {/c-spec__case}
+
+        {@c-spec__case expect="It should allow passing of 'textAlign' variables"}
+            {@c-button textAlign="right" text="foo" /}
+        {/c-spec__case}
+
+        {@c-spec__case expect="It should allow passing of 'size' variables"}
+            {@c-button size="large" text="foo" /}
+        {/c-spec__case}
+
+        {@c-spec__case expect="It should allow passing of 'size' variables"}
+            {@c-button size="xlarge" text="foo" /}
+        {/c-spec__case}
+
+        {@c-spec__case expect="It should allow passing of 'size' variables"}
+            {@c-button size="xxlarge" text="foo" /}
+        {/c-spec__case}
+
+
+        {@c-spec__case expect="It should allow passing of 'customClass' variables"}
+            {@c-button customClass="c-button--custom-class" text="foo" /}
+        {/c-spec__case}
+
     {/c-spec__test}
 {/c-spec}
+
