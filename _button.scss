@@ -7,32 +7,15 @@
 //Button Styles
 //---
 
-$border-width-button: 2px !default;
-$border-style-button: solid !default;
-$border-radius-button: 5px !default;
+$button__padding: $vertical-input-padding $horizontal-input-padding !default;
 
-//primary button
-$basic-button: #5c9bd2 !default;
-$active-basic-button: #3d88ca !default;
-$disabled-basic-button: #8ab7df !default;
+$button__border: if(variable-exists(border), $border, 1px solid $neutral-50) !default;
+$button__border-radius: if(variable-exists(border-radius), $border-radius, 0) !default;
 
-//success button
-$success-button: #61bb61 !default;
-$active-success-button: #53b553 !default;
-$disabled-success-button: #8acd8a !default;
 
-//error button
-$error-button: #da5956 !default;
-$active-error-button: #d33936 !default;
-$disabled-error-button: #e17976 !default;
-
-//button sizes
-$large-button: 20px !default;
-$padding-large-button: 10px 10px !default;
-$xlarge-button: 26px !default;
-$padding-xlarge-button: 20px 20px !default;
-$xxlarge-button: 35px !default;
-$padding-xxlarge-button: 30px 30px !default;
+$button__font-color: inherit !default;
+$button__font-family: inherit !default;
+$button__font-size: inherit !default;
 
 // Dependencies
 // ---
@@ -45,169 +28,44 @@ $padding-xxlarge-button: 30px 30px !default;
 // ---
 
 .c-button {
-    position: relative; // 1
-    display: block;
-    overflow:auto;
-    max-width: 100%;
     min-height: $tap-size;
-    border-radius: $border-radius;
+    display:inline-block;
+    margin: 0;
+    cursor:pointer;
+    background: none;
 
-    button {
+    text-align:center;
+    border:none;
+    line-height: normal;
+    white-space: normal;
+
+    span {
+        font-size: $button__font-size;
+        font-family: $button__font-family;
+
+        border: $button__border;
+        border-radius: $button__border-radius;
+        padding: $button__padding;
+
         display:inline-block;
+    }
 
-        width: 100%; // 1
-        height: 100%; // 1
-        padding-right: $horizontal-input-padding;
-        padding-left: $horizontal-input-padding;
-        padding-top:$vertical-input-padding;
-        padding-bottom:$vertical-input-padding;
-        cursor:pointer;
-        white-space: nowrap;
-        vertical-align: middle;
+    user-select:none;
+    -webkit-appearance: none;
 
-        background-image: none;
-        border-color: $neutral-50;
-        border-style: $border-style-button;
-        border-width: $border-width-button;
-        border-radius: $border-radius-button;
-        background: $neutral-50 ; // 2
-
-        font-size: $font-size;
-        text-align:center;
-        color:white;
-
-        -webkit-appearance: none; // 2
-
-        &:hover:enabled {
-            background: $neutral-60;
-            border-color: $neutral-60;
-        }
-
-        &:disabled {
-            background: $neutral-40;
-            border-color: $neutral-40;
-            cursor:initial;
-        }
-
-        //colours for primary button
-        &.c-button--basic {
-            background: $basic-button;
-            border-color: $basic-button;
-
-            &:hover:enabled {
-                color: white;
-                background: $active-basic-button;
-                border-color: $active-basic-button;
-            }
-
-            &:disabled {
-                color: white;
-                background: $disabled-basic-button;
-                border-color: $disabled-basic-button;
-                cursor:initial;
-            }
-        }
-
-        //colours for success button
-        &.c-button--success {
-            background: $success-button;
-            border-color: $success-button;
-
-            &:hover:enabled {
-                color: white;
-                background: $active-success-button;
-                border-color: $active-success-button;
-            }
-
-            &:disabled {
-                color: white;
-                background: $disabled-success-button;
-                border-color: $disabled-success-button;
-                cursor:initial;
-            }
-        }
-
-        //colours for error button
-        &.c-button--error {
-            background: $error-button;
-            border-color: $error-button;
-
-            &:hover:enabled {
-                color: white;
-                background: $active-error-button;
-                border-color: $active-error-button;
-            }
-
-            &:disabled {
-                color: white;
-                background: $disabled-error-button;
-                border-color: $disabled-error-button;
-                cursor:initial;
-            }
-        }
-
-        //styles for secondary button
-        &.c-button--secondary {
-            background: none;
-            color: $neutral-50;
-
-            &.c-button--basic{
-            color: $basic-button;
-            }
-
-            &.c-button--success {
-            color: $success-button;
-            }
-
-            &.c-button--error {
-            color: $error-button;
-            }
+    &,
+    &:focus,
+    &:active span{
+        color: $button__font-color;
+        text-decoration: none;
+    }
 
 
-            &:hover:enabled {
-                color: white;
-            }
-            &:disabled {
-                cursor:initial;
-
-                &.c-button--basic {
-                    color: $disabled-basic-button;
-                }
-
-                &.c-button--success {
-                    color: $disabled-success-button;
-                }
-
-                &.c-button--error {
-                    color: $disabled-error-button;
-                }
-
-            }
-        }
-
-        &.c-button--large {
-            font-size: $large-button;
-            padding: $padding-large-button;
-        }
-        &.c-button--xlarge {
-            font-size: $xlarge-button;
-            padding: $padding-xlarge-button;
-        }
-        &.c-button--xxlarge {
-            padding: $padding-xxlarge-button;
-            font-size: $xxlarge-button;
-        }
-
-        &.c-button--align-left {
-            text-align: left;
-            padding-left: $horizontal-input-padding;
-        }
-        &.c-button--align-right {
-            text-align: right;
-        }
-        &.c-button--align-center {
-            text-align:center;
-            padding-right: $horizontal-input-padding;
-        }
+    &:disabled,
+    &.c-button__is-disabled{
+        opacity: 0.6;
+        pointer-events:none;
     }
 }
+
+

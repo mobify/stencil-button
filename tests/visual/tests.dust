@@ -1,61 +1,65 @@
 <style>
-    .c-button--custom-class{
-        background: red !important;
-    }
+
+.alt-fonts {
+    font-size: 15px;
+    color: pink;
+    font-family: Comic Sans, Comic Sans MS, cursive;
+
+}
+
+.display-wrapping {
+    max-width:150px;
+}
+
+.button-test span {
+    background:#31b0d5;
+    border-color:#31b0d5;
+    color:white;
+}
+
+.button-test:hover span {
+    background:#5bc0de;
+    border-color:#31b0d5;
+}
+
 </style>
 {@c-spec for="Button Component" repository=repo}
     {@c-spec__test describe=".c-button"}
-        {@c-spec__case expect="Should have custom styled button"}
-            {@c-button id="foo" text="foo"/}
+
+        {@c-spec__case expect="It should render a standard button across all element types"}
+            {@c-button text="Button Element"  /}
+            {@c-button text="Anchor Element" href="#" /}
         {/c-spec__case}
 
         {@c-spec__case expect="It should allow passing in an html string."}
             {@c-button element=buttonMarkup /}
         {/c-spec__case}
 
-        {@c-spec__case expect="It should allow passing of secondary buttons"}
-            {@c-button isSecondary="true" text="foo" /}
+        {@c-spec__case expect="It should allow passing in a class."}
+            {@c-button class="button-test" text="Button Element" /}
+            {@c-button class="button-test" text="Anchor Element" /}
         {/c-spec__case}
 
-        {@c-spec__case expect="It should allow passing of 'primary' button types"}
-            {@c-button buttonType="primary" text="foo" /}
+        {@c-spec__case expect="It should inherit font size, style and colour by default"}
+            <div class="alt-fonts">
+                {@c-button text="Button Element" /}
+                {@c-button text="Anchor Element" href="#" /}
+            </div>
         {/c-spec__case}
 
-        {@c-spec__case expect="It should allow passing of 'success' button types"}
-            {@c-button buttonType="success" text="foo" /}
+        {@c-spec__case expect="It should allow long text wrapping"}
+                {@c-button text="This Displays Text Wrapping For The Button Element" class="display-wrapping"/}
+                {@c-button text="The Displays Text Wrapping For The Anchor Element" class="display-wrapping" href="#" /}
         {/c-spec__case}
 
-        {@c-spec__case expect="It should allow passing of 'error' button types"}
-            {@c-button buttonType="error" text="foo" /}
+        {@c-spec__case expect="It align well with adjacent text"}
+            <p> Lorem{@c-button text="Button Element" /} ipsum dolor sit amet. </p>
+            <p> Lorem{@c-button href="#" text="Anchor Element" /} ipsum dolor sit amet.</p>
         {/c-spec__case}
 
-        {@c-spec__case expect="It should allow passing of 'textAlign' variables"}
-            {@c-button textAlign="left" text="foo" /}
-        {/c-spec__case}
-
-        {@c-spec__case expect="It should allow passing of 'textAlign' variables"}
-            {@c-button textAlign="center" text="foo" /}
-        {/c-spec__case}
-
-        {@c-spec__case expect="It should allow passing of 'textAlign' variables"}
-            {@c-button textAlign="right" text="foo" /}
-        {/c-spec__case}
-
-        {@c-spec__case expect="It should allow passing of 'size' variables"}
-            {@c-button size="large" text="foo" /}
-        {/c-spec__case}
-
-        {@c-spec__case expect="It should allow passing of 'size' variables"}
-            {@c-button size="xlarge" text="foo" /}
-        {/c-spec__case}
-
-        {@c-spec__case expect="It should allow passing of 'size' variables"}
-            {@c-button size="xxlarge" text="foo" /}
-        {/c-spec__case}
-
-
-        {@c-spec__case expect="It should allow passing of 'customClass' variables"}
-            {@c-button customClass="c-button--custom-class" text="foo" /}
+        {@c-spec__case expect="It should appear disabled"}
+           {@c-button text="Button Element" disabled="true"/}
+           {@c-button href="#" text="Anchor Element"  disabled="true"/}
         {/c-spec__case}
 
     {/c-spec__test}

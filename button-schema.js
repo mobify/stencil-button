@@ -14,12 +14,8 @@ define(function(require) {
         '?element': [Object, Function, String],
         '?disabled': Boolean,
         '?link': String,
-        '?buttonText': String,
-        '?buttonType': String,
-        '?isSecondary': Boolean,
-        '?textAlign': String,
+        '?type': String,
+        '?secondary': Boolean,
         '?text':String,
-        '?customClass':String,
-        '?size':String
     });
 });

@@ -19,10 +19,10 @@ grunt component:install:button
 
 During installation, AdaptiveJS will register a Dust helper for the component which can be used in any template.
 
-### With a pre-existing select element
+### With a pre-existing button element
 
 ```html
-{@c-button element=selectMarkupOrElement /}
+{@c-button element=buttonMarkupOrElement /}
 ```
 
 
@@ -34,13 +34,13 @@ Assuming a context of the form:
 var context = {
     myButtonData: {
         id: 'something',
-        buttonText: 'something',
+        text: 'something',
 };
 ```
 
 ```html
 {#myButtonData}
-    {@c-button id=id buttonText=buttonText/}
+    {@c-button id=id text=text/}
 {/myButtonData}
 ```
 
@@ -56,36 +56,20 @@ class      | String        | Adds values to the `class` attribute of the root el
 id         | String        | Sets the `id` attribute of the root element
 element    | DOM, String   | Accepts the underlying button element as a DOM node or HTML string
 text       | String        | Creates Button Text
-buttonType | String        | Creates predefined button styles. One of `basic`, `success` or `error`
-isSecondary| Boolean       | true if you would like a secondary button (default:false)
-customClass| String        | Add a custom class to your button
-textAlign  | String        | Sets text align of button text. One of `left`, `right` or `center` (default:center)
-size       | String        | sets size of button. One of `large`, `xlarge` or `xxlarge`
+href       | String        | Creates anchor button with link specified
+disabled   | Boolean       | True if you would like button to be disabled (default:false)
 
 
 ### Sass configurable variables
 
 Variable name             | Type      | Description
 :------------------------ | :-------- | :----------
-$border-width-button      | String    | Sets border width of all buttons (ex `2px`)
-$border-style-button      | String    | Sets style of border
-$border-radius-button     | String    | Sets border radius of all buttons (ex `2px`)
-$basic-button             | String    | sets colour of basic button (ex `#cccccc`)
-$active-basic-button      | String    | sets colour of basic button when active (ex `#cccccc` )
-$disabled-basic-button    | String    | sets colour of basic button when disabled (ex `#cccccc)
-$success-button           | String    | sets colour of success button
-$active-success-button    | String    | sets colour of success button when active (ex `#cccccc` )
-$disabled-success-button  | String    | sets colour of success button when disabled (ex `#cccccc`)
-$error-button             | String    | sets colour of error button
-$active-error-button      | String    | sets colour of error button when active (ex `#cccccc` )
-$disabled-error-button    | String    | sets colour of error button when disabled (ex `#cccccc`)
-$large-button             | String    | sets size of large button (ex `20px`)
-$padding-large-button     | String    | sets padding of large button (ex `20px 20px`)
-$xlarge-button            | String    | sets size of xlarge button (ex `20px`)
-$padding-xlarge-button    | String    | sets padding of xlarge button (ex `20px 20px`)
-$xxlarge-button           | String    | sets size of xxlarge button (ex `20px`)
-$padding-xxlarge-button   | String    | sets padding of xxlarge button (ex `20px 20px`)
-
+$button__padding          | String    | Sets button padding
+$button__border           | String    | Sets button border
+$button__border-radius    | String    | Sets button border radius
+$button__font-color       | String    | Sets button font colour
+$button__font-family      | String    | Sets button font family
+$button__font-size        | String    | Sets button font size
 
 ## Contributing
 
