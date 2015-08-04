@@ -27,39 +27,41 @@
     {@c-spec__test describe=".c-button"}
 
         {@c-spec__case expect="It should render a standard button across all element types"}
-            {@c-button text="Button Element"  /}
-            {@c-button text="Anchor Element" href="#" /}
-        {/c-spec__case}
-
-        {@c-spec__case expect="It should allow passing in an html string."}
-            {@c-button element=buttonMarkup /}
+            {@c-button}Button Element{/c-button}
+            {@c-button href="#"}Anchor Element{/c-button}
         {/c-spec__case}
 
         {@c-spec__case expect="It should allow passing in a class."}
-            {@c-button class="button-test" text="Button Element" /}
-            {@c-button class="button-test" text="Anchor Element" /}
+            {@c-button class="button-test"}Button Element{/c-button}
+            {@c-button class="button-test" href="#"}Anchor Element{/c-button}
         {/c-spec__case}
 
         {@c-spec__case expect="It should inherit font size, style and colour by default"}
             <div class="alt-fonts">
-                {@c-button text="Button Element" /}
-                {@c-button text="Anchor Element" href="#" /}
+                {@c-button}Button Element{/c-button}
+                {@c-button href="#"}Anchor Element{/c-button}
             </div>
         {/c-spec__case}
 
         {@c-spec__case expect="It should allow long text wrapping"}
-                {@c-button text="This Displays Text Wrapping For The Button Element" class="display-wrapping"/}
-                {@c-button text="The Displays Text Wrapping For The Anchor Element" class="display-wrapping" href="#" /}
+                {@c-button class="display-wrapping"}This Displays Text Wrapping For The Button Element{/c-button}
+                {@c-button class="display-wrapping"  href="#"}The Displays Text Wrapping For The Anchor Element{/c-button}
         {/c-spec__case}
 
         {@c-spec__case expect="It align well with adjacent text"}
-            <p> Lorem{@c-button text="Button Element" /} ipsum dolor sit amet. </p>
-            <p> Lorem{@c-button href="#" text="Anchor Element" /} ipsum dolor sit amet.</p>
+            <p> Lorem {@c-button}Button Element{/c-button} ipsum dolor sit amet. </p>
+            <p> Lorem {@c-button href="#"}Anchor Element{/c-button} ipsum dolor sit amet.</p>
         {/c-spec__case}
 
         {@c-spec__case expect="It should appear disabled"}
-           {@c-button text="Button Element" disabled="true"/}
-           {@c-button href="#" text="Anchor Element"  disabled="true"/}
+           {@c-button disabled="true"}Button Element{/c-button}
+           {@c-button href="#" disabled="true"}Anchor Element{/c-button}
+        {/c-spec__case}
+
+        {@c-spec__case expect="It should be able to have a specified button type"}
+           {@c-button type="button" }Button Element{/c-button}
+           {@c-button type="submit"}Button Element{/c-button}
+           {@c-button type="reset"}Button Element{/c-button}
         {/c-spec__case}
 
     {/c-spec__test}

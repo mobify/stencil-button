@@ -11,11 +11,9 @@ define(function(require) {
     return schema({
         '?class': String,
         '?id': String,
-        '?element': [Object, Function, String],
         '?disabled': Boolean,
         '?link': String,
         '?type': String,
-        '?secondary': Boolean,
         '?text':String,
     });
 });

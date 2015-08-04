@@ -19,11 +19,6 @@ grunt component:install:button
 
 During installation, AdaptiveJS will register a Dust helper for the component which can be used in any template.
 
-### With a pre-existing button element
-
-```html
-{@c-button element=buttonMarkupOrElement /}
-```
 
 
 ### With options from data
@@ -34,13 +29,12 @@ Assuming a context of the form:
 var context = {
     myButtonData: {
         id: 'something',
-        text: 'something',
 };
 ```
 
 ```html
 {#myButtonData}
-    {@c-button id=id text=text/}
+    {@c-button id=id}Some Text{/c-button}
 {/myButtonData}
 ```
 
@@ -54,22 +48,10 @@ Param name | Type          | Description
 :--------- | :------------ | :----------
 class      | String        | Adds values to the `class` attribute of the root element
 id         | String        | Sets the `id` attribute of the root element
-element    | DOM, String   | Accepts the underlying button element as a DOM node or HTML string
-text       | String        | Creates Button Text
-href       | String        | Creates anchor button with link specified
+link       | String        | Creates anchor button with link specified
+type       | String        | Specifies button type
 disabled   | Boolean       | True if you would like button to be disabled (default:false)
 
-
-### Sass configurable variables
-
-Variable name             | Type      | Description
-:------------------------ | :-------- | :----------
-$button__padding          | String    | Sets button padding
-$button__border           | String    | Sets button border
-$button__border-radius    | String    | Sets button border radius
-$button__font-color       | String    | Sets button font colour
-$button__font-family      | String    | Sets button font family
-$button__font-size        | String    | Sets button font size
 
 ## Contributing
 
