@@ -1,11 +1,12 @@
-// button
+// Stencil Button
 // ===
+
 
 // Configurable Variables
 // ---
+//
+// e.g. $button__variable-name: some-value;
 
-//Button Styles
-//---
 
 // Dependencies
 // ---
@@ -13,53 +14,87 @@
 @import 'stencil-variables/variables';
 @import 'level/level';
 
+
 // Button root
 // ---
+//
+// 1. Allows positioning of the tap target
+// 2. Remove browser default styling
+// 3. Focus styles must be set on the visible element rather than the container
 
 .c-button {
-    position: relative;
+    position: relative; // 1
     display: inline-block;
-    margin: 0;
-    padding: 0;
-    min-height: $tap-size;
-    appearance: none;
-    cursor:pointer;
-    background: none;
-    border: 0;
-    font: inherit;
-    color: inherit;
-    font-family:inherit;
-    text-decoration: none;
-    line-height: normal;
-    white-space: normal;
-    outline:none;
-    user-select:none;
-    -webkit-appearance: none;
+    margin: 0; // 2
+    padding: 0; // 2
+    border: 0; // 2
 
-    &::before {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 100%;
-        content: '';
-    }
+    background: none; // 2
+
+    color: inherit; // 2
+    font: inherit; // 2
+    line-height: normal; // 2
+    text-decoration: none; // 2
+
+    appearance: none; // 2
+    outline: none; // 3
 
     &:disabled,
     &.c--is-disabled{
         opacity: 0.6;
-        pointer-events:none;
+        pointer-events: none;
     }
 }
-//Button Span
-// this element is what is visible, as it allows us to have
-// visible content less then the min tap size.
 
-.c-button > span{
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    min-height: $input-visible-height;
+
+// Tap target
+// ---
+//
+// 1. Allows the tap target to be larger than the visible element without
+//    affecting layout.
+// 2. Center the tap target behind the visible element while still allowing the
+//    top and bottom extent to be controlled by the height property.
+
+.c-button::before {
+    content: '';
+
+    position: absolute; // 1
+    top: 50%; // 2
+    left: 50%; // 2
+
+    width: 100%; // 2
+    height: $tap-size; // 2
+
+    transform: translate(-50%, -50%); // 2
 }
 
 
+// Visible button element
+// ---
+//
+// This allows us to have visible content less then the min tap size, and also
+// works around issue with flex alignment on <button> elements in older
+// implementations.
+//
+// 1. Ensure the visible element stacks above the tap target.
+// 2. Enable a min-height while allowing it to grow if the button text wraps
+// 3. This controls the effective height of the element without affecting its
+//    tappable size.
+
+.c-button {
+    > span {
+        position: relative; // 1
+        display: flex; // 2
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        min-height: $input-height; // 3
+        padding: $vertical-input-padding $horizontal-input-padding;
+        border: 1px solid $border-color;
+    }
+
+    &:focus > span {
+        box-shadow: 0 0 0 1px $accent-color;
+        border: 1px solid $accent-color;
+    }
+}

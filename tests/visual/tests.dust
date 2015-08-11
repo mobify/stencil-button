@@ -1,28 +1,45 @@
 <style>
-
 .alt-fonts {
     font-size: 15px;
     color: pink;
     font-family: Comic Sans, Comic Sans MS, cursive;
-
 }
 
-.display-wrapping {
-    max-width:150px;
+.c--cap-width {
+    max-width: 150px;
 }
 
-.button-test span {
-    background:#31b0d5;
-    border-color:#31b0d5;
-    color:white;
+.c-button.c--themed > span {
+    background: #31b0d5;
+    border-color: #31b0d5;
+    color: white;
 }
 
-.button-test:hover span {
-    background:#5bc0de;
-    border-color:#31b0d5;
+.c-button.c--themed:hover > span {
+    background: #5bc0de;
+    border-color: #31b0d5;
 }
 
+/* Improve UX for testing, including desktop browsers */
+.c-button {
+    cursor: pointer;
+}
+
+.c-button + .c-button {
+    margin-left: 1em;
+}
+
+/* Test independent tap target */
+.c-button.c--test-tap-target::before {
+    height: 85px;
+    background: hsla(0, 100%, 80%, 0.25);
+}
+
+.c-button.c--test-tap-target > span {
+    min-height: 35px;
+}
 </style>
+
 {@c-spec for="Button Component" repository=repo}
     {@c-spec__test describe=".c-button"}
 
@@ -32,8 +49,8 @@
         {/c-spec__case}
 
         {@c-spec__case expect="It should allow passing in a class."}
-            {@c-button class="button-test"}Button Element{/c-button}
-            {@c-button class="button-test" href="#"}Anchor Element{/c-button}
+            {@c-button class="c--themed"}Button Element{/c-button}
+            {@c-button class="c--themed" href="#"}Anchor Element{/c-button}
         {/c-spec__case}
 
         {@c-spec__case expect="It should inherit font size, style and colour by default"}
@@ -44,8 +61,8 @@
         {/c-spec__case}
 
         {@c-spec__case expect="It should allow long text wrapping"}
-                {@c-button class="display-wrapping"}This Displays Text Wrapping For The Button Element{/c-button}
-                {@c-button class="display-wrapping"  href="#"}The Displays Text Wrapping For The Anchor Element{/c-button}
+                {@c-button class="c--cap-width"}This Displays Text Wrapping For The Button Element{/c-button}
+                {@c-button class="c--cap-width"  href="#"}The Displays Text Wrapping For The Anchor Element{/c-button}
         {/c-spec__case}
 
         {@c-spec__case expect="It align well with adjacent text"}
@@ -53,15 +70,19 @@
             <p> Lorem {@c-button href="#"}Anchor Element{/c-button} ipsum dolor sit amet.</p>
         {/c-spec__case}
 
-        {@c-spec__case expect="It should appear disabled"}
+        {@c-spec__case expect="It should appear disabled, and should do nothing"}
            {@c-button disabled="true"}Button Element{/c-button}
            {@c-button href="#" disabled="true"}Anchor Element{/c-button}
         {/c-spec__case}
 
         {@c-spec__case expect="It should be able to have a specified button type"}
-           {@c-button type="button" }Button Element{/c-button}
+           {@c-button type="button"}Button Element{/c-button}
            {@c-button type="submit"}Button Element{/c-button}
-           {@c-button type="reset"}Button Element{/c-button}
+        {/c-spec__case}
+
+        {@c-spec__case expect="Its tap target can be independently sized"}
+           {@c-button class="c--themed c--test-tap-target" type="button"}Button Element{/c-button}
+           {@c-button class="c--themed c--test-tap-target" type="submit"}Button Element{/c-button}
         {/c-spec__case}
 
     {/c-spec__test}
