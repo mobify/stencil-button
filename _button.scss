@@ -14,6 +14,8 @@
 @import 'stencil-variables/variables';
 @import 'level/level';
 
+// TODO: Move these variables to stencil-variables
+$input-height: 40px !default; // Visual height of buttons/textinputs/etc
 
 // Button root
 // ---

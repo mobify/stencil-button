@@ -27,7 +27,7 @@
     "tests"
   ],
   "dependencies": {
-    "stencil-variables": "mobify/stencil-variables#added-input-visible",
+    "stencil-variables": "mobify/stencil-variables",
     "level": ">=0.1.0",
     "spline": "~1.0.1"
   },
