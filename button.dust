@@ -11,6 +11,5 @@
     {?id}id="{id}"{/id}
     {?role}role="{role}"{/role}
     {?onclick}onclick="{onclick}"{/onclick}
-    data-adaptivejs-component="button"
     {attr}
 {/attributes}
