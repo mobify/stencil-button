@@ -1,26 +1,9 @@
-require.config({
-    paths: {
-        'dust-full': '../../node_modules/dustjs-linkedin/dist/dust-full',
-        'adaptivejs': '../../node_modules/adaptivejs',
-    },
-    shim: {
-        'dust-full': {
-            'exports': 'dust'
-        }
-    },
-});
-
-require([
-    'dust-full',
-    'adaptivejs/lib/dust-component-helper',
-    'adaptivejs/lib/dust-component-sugar',
-    '../../tmp/templates'
-], function(
-    dust,
-    componentHelper,
-    componentSugar,
-    templates
-) {
+define(function(require) {
+    var dust = require('dust-full');
+    var componentHelper = require('adaptivejs/lib/dust-component-helper');
+    var componentSugar = require('adaptivejs/lib/dust-component-sugar');
+    // var ui = require('../../select');
+    var templates = require('../../tmp/templates');
     var context;
 
     // Register helpers for precompiled component templates.
@@ -31,13 +14,17 @@ require([
 
     // Define any context required for the tests:
     var context = {
-        repo: 'https://github.com/mobify/stencil-button',
+        repo: 'https://github.com/mobify/stencil-button'
     };
 
     // Render
     dust.render('tests', context, function(err, out) {
         if (!err) {
             document.querySelector('body').innerHTML = out;
+
+            $('[data-adaptivejs-component="stencil-select"]').each(function(i, el) {
+                // ui.init($(el));
+            });
         } else {
             console.log(err);
         }

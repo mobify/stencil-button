@@ -1,9 +1,16 @@
-{?href}
-    <a href={href} class="c-button {class} {?disabled}c--is-disabled{/disabled}" {?id}id="{id}"{/id}>
-        <span>{body}</span>
-    </a>
-{:else}
-    <button class="c-button {class}" {?disabled}c--is-disabled{/disabled} type="{?type}{type}{:else}button{/type}" {?id}id="{id}"{/id} {?disabled}disabled{/disabled}>
-        <span>{body}</span>
-    </button>
-{/href}
+{?href} <a href="{href}" {+attributes /}>
+{:else} <button type="{?type}{type}{:else}button{/type}" {+attributes /}> {/href}
+
+    <span class="c-button__inner">{body}</span>
+
+{?href} </a>
+{:else} </button> {/href}
+
+{<attributes}
+    class="c-button {class}"
+    {?id}id="{id}"{/id}
+    {?role}role="{role}"{/role}
+    {?onclick}onclick="{onclick}"{/onclick}
+    data-adaptivejs-component="button"
+    {attr}
+{/attributes}

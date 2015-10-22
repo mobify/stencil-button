@@ -17,6 +17,7 @@
 // TODO: Move these variables to stencil-variables
 $input-height: 40px !default; // Visual height of buttons/textinputs/etc
 
+
 // Button root
 // ---
 //
@@ -24,7 +25,8 @@ $input-height: 40px !default; // Visual height of buttons/textinputs/etc
 // 2. Remove browser default styling
 // 3. Focus styles must be set on the visible element rather than the container
 
-.c-button {
+.c-button,
+%c-button {
     position: relative; // 1
     display: inline-block;
     margin: 0; // 2
@@ -41,8 +43,14 @@ $input-height: 40px !default; // Visual height of buttons/textinputs/etc
     appearance: none; // 2
     outline: none; // 3
 
+    &:focus {
+        box-shadow: 0 0 0 1px $accent-color;
+        border: 1px solid $accent-color;
+    }
+
     &:disabled,
-    &.c--is-disabled{
+    &.c--is-disabled,
+    & * {
         opacity: 0.6;
         pointer-events: none;
     }
@@ -57,7 +65,8 @@ $input-height: 40px !default; // Visual height of buttons/textinputs/etc
 // 2. Center the tap target behind the visible element while still allowing the
 //    top and bottom extent to be controlled by the height property.
 
-.c-button::before {
+.c-button::before,
+%c-button__before {
     content: '';
 
     position: absolute; // 1
@@ -83,20 +92,14 @@ $input-height: 40px !default; // Visual height of buttons/textinputs/etc
 // 3. This controls the effective height of the element without affecting its
 //    tappable size.
 
-.c-button {
-    > span {
-        position: relative; // 1
-        display: flex; // 2
-        align-items: center;
-        text-align: center;
-        justify-content: center;
-        min-height: $input-height; // 3
-        padding: $vertical-input-padding $horizontal-input-padding;
-        border: 1px solid $border-color;
-    }
-
-    &:focus > span {
-        box-shadow: 0 0 0 1px $accent-color;
-        border: 1px solid $accent-color;
-    }
+.c-button__inner,
+%c-button__inner {
+    position: relative; // 1
+    display: flex; // 2
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    min-height: $input-height; // 3
+    padding: $vertical-input-padding $horizontal-input-padding;
+    border: 1px solid $border-color;
 }
