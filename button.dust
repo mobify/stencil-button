@@ -1,7 +1,7 @@
 {?href} <a href="{href}" {+attributes /}>
 {:else} <button type="{?type}{type}{:else}button{/type}" {+attributes /}> {/href}
 
-    <span class="c-button__inner">{body}</span>
+    <span class="c-button__inner {class}">{body}</span>
 
 {?href} </a>
 {:else} </button> {/href}
