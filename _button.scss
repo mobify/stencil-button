@@ -49,10 +49,12 @@ $input-height: 40px !default; // Visual height of buttons/textinputs/etc
     }
 
     &:disabled,
-    &.c--is-disabled,
-    & * {
-        opacity: 0.6;
-        pointer-events: none;
+    &.c--is-disabled {
+        &,
+        & * {
+            opacity: 0.6;
+            pointer-events: none;
+        }
     }
 }
 
