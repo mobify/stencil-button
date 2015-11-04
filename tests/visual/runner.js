@@ -2,7 +2,7 @@ define(function(require) {
     var dust = require('dust-full');
     var componentHelper = require('adaptivejs/lib/dust-component-helper');
     var componentSugar = require('adaptivejs/lib/dust-component-sugar');
-    // var ui = require('../../select');
+    // var ui = require('../../button');
     var templates = require('../../tmp/templates');
     var context;
 
@@ -22,9 +22,9 @@ define(function(require) {
         if (!err) {
             document.querySelector('body').innerHTML = out;
 
-            $('[data-adaptivejs-component="stencil-select"]').each(function(i, el) {
-                // ui.init($(el));
-            });
+            // $('[data-adaptivejs-component="stencil-button"]').each(function(i, el) {
+            //     ui.init($(el));
+            // });
         } else {
             console.log(err);
         }
