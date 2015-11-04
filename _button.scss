@@ -23,40 +23,39 @@ $input-height: 40px !default; // Visual height of buttons/textinputs/etc
 // 2. Use flexbox to vertically center content, except for <button> tags – these
 //    have compatibility issues with flexbox. Thankfully, they vertically
 //    center themselves because browsers ¯\_(ツ)_/¯.
-// 3. Prevent clicks from registering, even when the `disabled` attribute has
+// 3. Remove browser defaults
+// 4. Prevent clicks from registering, even when the `disabled` attribute has
 //    no meaning (like on links).
 
 .c-button {
     position: relative; // 1
+
     display: inline-block;
 
-    // 2
     &:not(button) {
-        display: inline-flex;
-        align-items: center;
+        display: inline-flex; // 2
+        align-items: center; // 2
     }
 
-    // Remove browser defaults
-    margin: 0;
-    padding: 0;
-    border: 0;
-    background: none;
+    min-height: $input-height;
+    margin: 0; // 3
+    padding: $vertical-input-padding $horizontal-input-padding;
+    border: 1px solid $border-color;
+
+    background: none; // 3
+
     color: inherit;
     font: inherit;
     line-height: normal;
-    text-decoration: none;
-    appearance: none;
-
-    // Core styles
-    min-height: $input-height;
-    padding: $vertical-input-padding $horizontal-input-padding;
-    border: 1px solid $border-color;
     text-align: center;
+    text-decoration: none; // 3
+
+    appearance: none; // 3
 
     &:disabled,
     &[disabled] {
         opacity: 0.6;
-        pointer-events: none; // 3
+        pointer-events: none; // 4
     }
 }
 
