@@ -1,15 +1,20 @@
-{?href} <a href="{href}" {+attributes /}>
-{:else} <button type="{?type}{type}{:else}button{/type}" {+attributes /}> {/href}
+{?href}
+    <a href="{href}" {+attrs /}>
+        {body}
+    </a>
+{:else}
+    <button type="{?type}{type}{:else}button{/type}" {+attrs /}>
+        {body}
+    </button>
+{/href}
 
-    <span class="c-button__inner {innerClass}">{body}</span>
-
-{?href} </a>
-{:else} </button> {/href}
-
-{<attributes}
+{<attrs}
     class="c-button {class}"
     {?id}id="{id}"{/id}
+    {?name}name="{name}"{/name}
+    {?value}value="{value}"{/value}
     {?role}role="{role}"{/role}
     {?onclick}onclick="{onclick}"{/onclick}
-    {attr}
-{/attributes}
+    {?disabled}disabled{/disabled}
+    {attributes}
+{/attrs}
