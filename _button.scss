@@ -4,8 +4,9 @@
 
 // Configurable Variables
 // ---
-//
-// e.g. $button__variable-name: some-value;
+
+// TODO: Move these variables to stencil-variables
+$input-height: 40px !default; // Visual height of buttons/textinputs/etc
 
 
 // Dependencies
@@ -14,46 +15,48 @@
 @import 'stencil-variables/variables';
 @import 'level/level';
 
-// TODO: Move these variables to stencil-variables
-$input-height: 40px !default; // Visual height of buttons/textinputs/etc
-
 
 // Button root
 // ---
 //
 // 1. Allows positioning of the tap target
-// 2. Remove browser default styling
-// 3. Focus styles must be set on the visible element rather than the container
+// 2. Use flexbox to vertically center content, except for <button> tags – these
+//    have compatibility issues with flexbox. Thankfully, they vertically
+//    center themselves because browsers ¯\_(ツ)_/¯.
+// 3. Prevent clicks from registering, even when the `disabled` attribute has
+//    no meaning (like on links).
 
 .c-button {
     position: relative; // 1
     display: inline-block;
-    margin: 0; // 2
-    padding: 0; // 2
-    border: 0; // 2
 
-    background: none; // 2
-
-    color: inherit; // 2
-    font: inherit; // 2
-    line-height: normal; // 2
-    text-decoration: none; // 2
-
-    appearance: none; // 2
-    outline: none; // 3
-
-    &:focus {
-        box-shadow: 0 0 0 1px $accent-color;
-        border: 1px solid $accent-color;
+    // 2
+    &:not(button) {
+        display: inline-flex;
+        align-items: center;
     }
 
+    // Remove browser defaults
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+    line-height: normal;
+    text-decoration: none;
+    appearance: none;
+
+    // Core styles
+    min-height: $input-height;
+    padding: $vertical-input-padding $horizontal-input-padding;
+    border: 1px solid $border-color;
+    text-align: center;
+
     &:disabled,
-    &.c--is-disabled {
-        &,
-        & * {
-            opacity: 0.6;
-            pointer-events: none;
-        }
+    &[disabled] {
+        opacity: 0.6;
+        pointer-events: none; // 3
     }
 }
 
@@ -77,28 +80,4 @@ $input-height: 40px !default; // Visual height of buttons/textinputs/etc
     height: $tap-size; // 2
 
     transform: translate(-50%, -50%); // 2
-}
-
-
-// Visible button element
-// ---
-//
-// This allows us to have visible content less then the min tap size, and also
-// works around issue with flex alignment on <button> elements in older
-// implementations.
-//
-// 1. Ensure the visible element stacks above the tap target.
-// 2. Enable a min-height while allowing it to grow if the button text wraps
-// 3. This controls the effective height of the element without affecting its
-//    tappable size.
-
-.c-button__inner {
-    position: relative; // 1
-    display: flex; // 2
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    min-height: $input-height; // 3
-    padding: $vertical-input-padding $horizontal-input-padding;
-    border: 1px solid $border-color;
 }
