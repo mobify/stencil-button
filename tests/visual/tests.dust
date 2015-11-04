@@ -83,5 +83,11 @@
            {@c-button class="c--themed c--test-tap-target" type="submit"}Button Element{/c-button}
         {/c-spec__case}
 
+        {@c-spec__case expect="It should submit a value in forms"}
+            <form action="/foo" method="post">
+               {@c-button class="c--themed" type="submit" name="foo" value="foo_value"}Value for foo{/c-button}
+            </form>
+        {/c-spec__case}
+
     {/c-spec__test}
 {/c-spec}

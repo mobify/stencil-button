@@ -11,6 +11,8 @@
 {<attrs}
     class="c-button {class}"
     {?id}id="{id}"{/id}
+    {?name}name="{name}"{/name}
+    {?value}value="{value}"{/value}
     {?role}role="{role}"{/role}
     {?onclick}onclick="{onclick}"{/onclick}
     {?disabled}disabled{/disabled}
